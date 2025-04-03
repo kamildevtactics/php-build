@@ -1,13 +1,15 @@
 configure_option "--enable-gd"
 configure_option "--with-jpeg"
 configure_option "--with-zip"
-configure_option "--with-mhash"
+# Remove --with-mhash as it's deprecated in PHP 8.1+ (though it will still work with a warning)
 
-configure_option -D "--with-xmlrpc"
-configure_option -D "--with-imap"
-configure_option -D "--with-imap-ssl"
-configure_option -D "--with-kerberos"
+# Remove these lines completely as these extensions/options no longer exist in core PHP 8.4.5
+# configure_option -D "--with-xmlrpc"
+# configure_option -D "--with-imap"
+# configure_option -D "--with-imap-ssl"
+# configure_option -D "--with-kerberos"
 
 install_package "https://www.php.net/distributions/php-8.4.5.tar.bz2"
-install_xdebug "3.3.1"
+# Consider installing XDebug after PHP is built due to compatibility issues
+# install_xdebug "3.3.1"
 enable_builtin_opcache
